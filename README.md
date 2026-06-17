@@ -111,10 +111,3 @@ mvn javafx:run
 ```
 
 ---
-
-## 👥 Auteur
-
-**Ismail Haddouch**  
-SUPMTI Rabat — Module : Programmation Java  
-Année universitaire 2025-2026  
-Enseignant : Pr. Soufiane HAMIDA
