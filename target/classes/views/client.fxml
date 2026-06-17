@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox spacing="15" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.restaurant.gestion_restaurant.controllers.ClientController"
+      style="-fx-padding: 20; -fx-background-color: #f0fff0;">
+
+    <Label text="👤 Espace Client"
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #27ae60;"/>
+
+    <!-- Infos client -->
+    <Label text="Vos informations :"
+           style="-fx-font-weight: bold; -fx-font-size: 13px;"/>
+
+    <GridPane hgap="10" vgap="8">
+        <Label text="Nom :"       GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfNom" promptText="Votre nom"
+                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Prénom :"    GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfPrenom" promptText="Votre prénom"
+                   GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Téléphone :" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfTelephone" promptText="Ex: 06XXXXXXXX"
+                   GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="N° Table :"  GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfTable" promptText="Ex: 3"
+                   GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <!-- Choix plat -->
+    <Label text="Votre commande :"
+           style="-fx-font-weight: bold; -fx-font-size: 13px;"/>
+
+    <HBox spacing="10">
+        <ComboBox fx:id="cbMenu" promptText="Choisir un plat" prefWidth="250"/>
+        <TextField fx:id="tfQuantite" promptText="Quantité" prefWidth="80"/>
+        <Button text="🛒 Commander" onAction="#handleCommander"
+                style="-fx-background-color:#27ae60;-fx-text-fill:white;
+                       -fx-font-size:14px; -fx-padding: 8 15;"/>
+    </HBox>
+
+    <!-- Message confirmation -->
+    <Label fx:id="lblConfirmation" text="" wrapText="true"
+           style="-fx-font-size: 13px;"/>
+
+    <Separator/>
+
+    <!-- Mes commandes -->
+    <HBox spacing="10">
+        <Label text="📦 Mes commandes :"
+               style="-fx-font-weight: bold; -fx-font-size: 13px;"/>
+        <Button text="🔄 Actualiser" onAction="#handleVoirCommandes"
+                style="-fx-background-color:#2980b9;-fx-text-fill:white;"/>
+        <Button text="❌ Annuler la commande sélectionnée" onAction="#handleAnnuler"
+                style="-fx-background-color:#e74c3c;-fx-text-fill:white;"/>
+    </HBox>
+
+    <TableView fx:id="tableCommandes" prefHeight="200">
+        <columns>
+            <TableColumn fx:id="colId"     text="ID"     prefWidth="40"/>
+            <TableColumn fx:id="colTable"  text="Table"  prefWidth="55"/>
+            <TableColumn fx:id="colPlat"   text="Plat"   prefWidth="150"/>
+            <TableColumn fx:id="colQte"    text="Qté"    prefWidth="45"/>
+            <TableColumn fx:id="colStatut" text="Statut" prefWidth="110"/>
+            <TableColumn fx:id="colDate"   text="Date"   prefWidth="140"/>
+        </columns>
+    </TableView>
+</VBox>

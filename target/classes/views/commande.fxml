@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox spacing="15" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.restaurant.gestion_restaurant.controllers.CommandeController"
+      style="-fx-padding: 20; -fx-background-color: #f9f9f9;">
+
+    <Label text="📋 Gestion des Commandes"
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <GridPane hgap="10" vgap="10">
+        <Label text="N° Table :"  GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfTable" promptText="Ex: 5"
+                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Plat :"      GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="cbMenu" promptText="Choisir un plat"
+                  GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Quantité :"  GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfQuantite" promptText="Ex: 2"
+                   GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Statut :"    GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="cbStatut" promptText="Statut"
+                  GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <!-- Boutons CRUD uniquement -->
+    <HBox spacing="10">
+        <Button text="➕ Ajouter"    onAction="#handleAjouter"
+                style="-fx-background-color:#27ae60;-fx-text-fill:white;-fx-font-size:13px;-fx-padding:6 15;"/>
+        <Button text="✏️ Modifier"   onAction="#handleModifier"
+                style="-fx-background-color:#2980b9;-fx-text-fill:white;-fx-font-size:13px;-fx-padding:6 15;"/>
+        <Button text="🗑️ Supprimer"  onAction="#handleSupprimer"
+                style="-fx-background-color:#e74c3c;-fx-text-fill:white;-fx-font-size:13px;-fx-padding:6 15;"/>
+        <Button text="🔄 Actualiser" onAction="#handleActualiser"
+                style="-fx-background-color:#7f8c8d;-fx-text-fill:white;-fx-font-size:13px;-fx-padding:6 15;"/>
+    </HBox>
+
+    <!-- Légende couleurs -->
+    <HBox spacing="15">
+        <Label text="🟡 En attente"     style="-fx-background-color:#fff3cd; -fx-padding:3 8;"/>
+        <Label text="🔵 En préparation" style="-fx-background-color:#cce5ff; -fx-padding:3 8;"/>
+        <Label text="🟢 Servie"         style="-fx-background-color:#d4edda; -fx-padding:3 8;"/>
+        <Label text="🔴 Annulée"        style="-fx-background-color:#f8d7da; -fx-padding:3 8;"/>
+    </HBox>
+
+    <TableView fx:id="tableCommandes" prefHeight="350">
+        <columns>
+            <TableColumn fx:id="colId"     text="ID"      prefWidth="40"/>
+            <TableColumn fx:id="colTable"  text="Table"   prefWidth="55"/>
+            <TableColumn fx:id="colClient" text="Client"  prefWidth="120"/>
+            <TableColumn fx:id="colPlat"   text="Plat"    prefWidth="150"/>
+            <TableColumn fx:id="colQte"    text="Qté"     prefWidth="45"/>
+            <TableColumn fx:id="colStatut" text="Statut"  prefWidth="110"/>
+            <TableColumn fx:id="colDate"   text="Date"    prefWidth="140"/>
+        </columns>
+    </TableView>
+</VBox>

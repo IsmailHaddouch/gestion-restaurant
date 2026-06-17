@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.restaurant.gestion_restaurant.controllers.MenuController"
+      style="-fx-padding: 20; -fx-background-color: #f9f9f9;">
+
+    <Label text="🍽️ Gestion des Menus"
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #c0392b;"/>
+
+    <!-- Formulaire -->
+    <GridPane hgap="10" vgap="10">
+        <Label text="Nom :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfNom" promptText="Nom du plat"
+                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Description :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfDescription" promptText="Description"
+                   GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Prix (MAD) :" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfPrix" promptText="Ex: 55.00"
+                   GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Catégorie :" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="cbCategorie" promptText="Catégorie"
+                  GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <!-- Boutons -->
+    <HBox spacing="10">
+        <Button text="➕ Ajouter"   onAction="#handleAjouter"   style="-fx-background-color:#27ae60;-fx-text-fill:white;"/>
+        <Button text="✏️ Modifier"  onAction="#handleModifier"  style="-fx-background-color:#2980b9;-fx-text-fill:white;"/>
+        <Button text="🗑️ Supprimer" onAction="#handleSupprimer" style="-fx-background-color:#e74c3c;-fx-text-fill:white;"/>
+        <Button text="🔄 Actualiser" onAction="#handleActualiser" style="-fx-background-color:#7f8c8d;-fx-text-fill:white;"/>
+    </HBox>
+
+    <!-- TableView -->
+    <TableView fx:id="tableMenus" prefHeight="350">
+        <columns>
+            <TableColumn fx:id="colId"          text="ID"          prefWidth="40"/>
+            <TableColumn fx:id="colNom"         text="Nom"         prefWidth="150"/>
+            <TableColumn fx:id="colDescription" text="Description" prefWidth="180"/>
+            <TableColumn fx:id="colPrix"        text="Prix"        prefWidth="80"/>
+            <TableColumn fx:id="colCategorie"   text="Catégorie"   prefWidth="100"/>
+        </columns>
+    </TableView>
+</VBox>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox spacing="15" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.restaurant.gestion_restaurant.controllers.CuisineController"
+      style="-fx-padding: 20; -fx-background-color: #fff8f0;">
+
+    <Label text="👨‍🍳 Espace Cuisine"
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #e67e22;"/>
+
+    <!-- Légende couleurs -->
+    <HBox spacing="15">
+        <Label text="🟡 En attente"
+               style="-fx-background-color:#fff3cd; -fx-padding:4 8;"/>
+        <Label text="🔵 En préparation"
+               style="-fx-background-color:#cce5ff; -fx-padding:4 8;"/>
+        <Label text="🟢 Servie"
+               style="-fx-background-color:#d4edda; -fx-padding:4 8;"/>
+        <Label text="🔴 Annulée"
+               style="-fx-background-color:#f8d7da; -fx-padding:4 8;"/>
+    </HBox>
+
+    <!-- Tableau commandes -->
+    <TableView fx:id="tableCommandes" prefHeight="380">
+        <columns>
+            <TableColumn fx:id="colId"     text="ID"      prefWidth="40"/>
+            <TableColumn fx:id="colTable"  text="Table"   prefWidth="55"/>
+            <TableColumn fx:id="colClient" text="Client"  prefWidth="120"/>
+            <TableColumn fx:id="colPlat"   text="Plat"    prefWidth="150"/>
+            <TableColumn fx:id="colQte"    text="Qté"     prefWidth="45"/>
+            <TableColumn fx:id="colStatut" text="Statut"  prefWidth="110"/>
+            <TableColumn fx:id="colDate"   text="Date"    prefWidth="140"/>
+        </columns>
+    </TableView>
+
+    <!-- Boutons cuisine -->
+    <HBox spacing="15">
+        <Button text="🔥 En Préparation" onAction="#handleEnPreparation"
+                style="-fx-background-color:#e67e22; -fx-text-fill:white;
+                       -fx-font-size:14px; -fx-padding: 8 20;"/>
+        <Button text="✅ Servie"          onAction="#handleServie"
+                style="-fx-background-color:#27ae60; -fx-text-fill:white;
+                       -fx-font-size:14px; -fx-padding: 8 20;"/>
+        <Button text="🔄 Actualiser"     onAction="#handleActualiser"
+                style="-fx-background-color:#7f8c8d; -fx-text-fill:white;
+                       -fx-font-size:14px; -fx-padding: 8 20;"/>
+    </HBox>
+
+    <!-- Message statut -->
+    <Label fx:id="lblStatut" text=""
+           style="-fx-font-size: 13px;"/>
+
+</VBox>
